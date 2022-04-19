@@ -6,13 +6,13 @@ const isDevelopment = process.env.NODE_ENV === 'production';
 module.exports = {
     mode: isDevelopment ? 'development' : 'production',
     devtool: isDevelopment ? 'eval-source-map' : 'source-map',
-    entry: path.resolve(__dirname, 'src', 'index.jsx'), // use path resolve to avoid erros based on name patterns from OS like / OR \
+    entry: path.resolve(__dirname, 'src', 'index.tsx'), // use path resolve to avoid erros based on name patterns from OS like / OR \
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: 'bundle.js'
     },
     resolve: {
-        extensions: ['.js', '.jsx']
+        extensions: ['.js', '.jsx','.ts', '.tsx']
     },
     devServer: {
         static: {
@@ -28,7 +28,7 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.jsx$/, // $ sign means that this occurency must be at the end.
+                test: /\.[tj]sx$/, // $ sign means that this occurency must be at the end.
                 exclude: /node_modules/,
                 use: 'babel-loader'
             },
