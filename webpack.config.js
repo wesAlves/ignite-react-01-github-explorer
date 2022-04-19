@@ -17,5 +17,6 @@ module.exports={
                 use: 'babel-loader'
             }
         ]
-    }
+    },
+    mode: 'development'
 }
